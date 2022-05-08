@@ -17,7 +17,15 @@ url http://127.0.0.1:8000/sentiment/sentiment_analysis/ 이동
 </code>
 </pre>
 
+<h3> views.py 노래제목 가수 변수 저장 </h3>
+<pre>
+<code>
+  title = list(sentiment_result['title'])
+  artist = list(sentiment_result['artist'])
+</code>
+</pre>
+
 <h3> sentiment_analysis.html 결과출력 </h3>
-<img src="https://user-images.githubusercontent.com/67617475/167281967-66dd65de-143b-4d7a-a7e3-cb90833b16c0.png">
+<img src="https://user-images.githubusercontent.com/67617475/167301233-d443fd34-5932-4c3d-a9e1-532e38b0cba0.png">
 
 
