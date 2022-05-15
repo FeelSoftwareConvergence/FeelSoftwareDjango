@@ -1,3 +1,33 @@
+## 필수 library 설치 명령어
+
+### general
+We worked on the project in an `Anaconda` virtual environment. Therefore, the command also used the `Anaconda` command. If you don't use anaconda, you can install it using the `pip` command.
+~~~
+git clone https://github.com/FeelSoftwareConvergence/FeelSoftwareDjango.git
+conda install django
+conda install -c conda-forge djangorestframework
+
+conda install pandas
+conda install numpy
+conda install scikit-learn
+conda install -c conda-forge lightgbm
+~~~
+
+### How to use the .cmd file
+
+Running the requirements.cmd file also works the same as the general method.
+
+~~~
+./requirements.cmd
+~~~
+
+if this command doesn't work. please change file permission for executing that.
+
+~~~
+chmod +x ./requirements.cmd
+~~~
+
+## 실행 명령어
 <pre>
 <code>
   python manage.py runserver
