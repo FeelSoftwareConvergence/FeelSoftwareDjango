@@ -22,12 +22,13 @@ def sentiment_views(request):
 
 @api_view(["POST"])
 def post(request):
-    content = request.data["content"]
+    reply = request.data["content"]
     img = request.data["image"]
 
-    print(content, img)
+    print(reply)
+    print(img)
 
-    sentiment_result = sentiment()
+    sentiment_result = sentiment(reply)
     title = list(sentiment_result['title'])
     artist = list(sentiment_result['artist'])
 

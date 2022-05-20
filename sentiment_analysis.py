@@ -5,7 +5,7 @@ import joblib
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-def sentiment():
+def sentiment(reply):
     lgbm_clf_save_model = joblib.load('sentiment_analysis.pkl')
     tfidf_save_model = joblib.load('tfidf.pkl')
 
@@ -22,9 +22,9 @@ def sentiment():
 
     sentiment_result_label = int(max(comment_sentiment, key=comment_sentiment.count))
 
-    text = comment + " " + content + " " + hashtag
-
-    music_list_df = pd.read_csv('music_list.csv', encoding="utf-8")
+    #text = comment + " " + content + " " + hashtag
+    text = reply
+    music_list_df = pd.read_csv('music_more_list.csv', encoding="utf-8")
     # 동일 감정 label 확인
     same_label_music = music_list_df[music_list_df['label'] == sentiment_result_label][['title', 'artist', 'Lyric']]
     same_label_music.loc['crawl_data'] = ['crawling_data', 'user', text]
