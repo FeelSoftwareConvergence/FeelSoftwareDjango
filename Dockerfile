@@ -1,8 +1,5 @@
 FROM fnndsc/ubuntu-python3
 
-
-
-
 RUN ["pip","install","--upgrade","pip"]
 
 RUN ["pip3","install","django","djangorestframework","pandas","numpy","scikit-learn==1.0.2","lightgbm","django-cors-headers"]
