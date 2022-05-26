@@ -34,9 +34,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'corsheaders',
     'feelsoyoung',
+#    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000', 'http://localhost:8000','https://www.instagram.com']
+CORS_ORIGIN_WHITELIST = ['http://localshot:8080', "https://instargram.com"]
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'feelsoyound_django.urls'
