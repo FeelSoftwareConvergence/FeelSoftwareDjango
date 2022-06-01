@@ -8,8 +8,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 def sentiment(reply):
-    
-    tfidf_save_model = joblib.load('tfidf.pkl')
+
     LSTM_savemodel = load_model("sentiment_analysis123.h5")
     
     content = reply
@@ -22,8 +21,29 @@ def sentiment(reply):
     output = np.argmax(LSTM_savemodel.predict(content_list), axis = 1)
 
     sentiment_result_label = int(output)
+
+    return sentiment_result_label
+
+def recommend_music(reply, sentiment_result_label, image_result_label) :
     
-    text = content
+    tfidf_save_model = joblib.load('tfidf.pkl')
+    
+    if (sentiment_result_label == 0) and (image_result_label == 2):
+        sentiment_result_label = sentiment_result_label
+    elif (sentiment_result_label == 1) and (image_result_label == 4):
+        sentiment_result_label = sentiment_result_label
+    elif (sentiment_result_label == 2) and (image_result_label == 0):
+        sentiment_result_label = sentiment_result_label
+    elif (sentiment_result_label == 3) and (image_result_label == 1):
+        sentiment_result_label = sentiment_result_label
+    elif (sentiment_result_label == 4) and (image_result_label == 3):
+        sentiment_result_label = sentiment_result_label
+    elif (sentiment_result_label == 5) and (image_result_label == 5):
+        sentiment_result_label = sentiment_result_label
+    else:
+        sentiment_result_label = sentiment_result_label
+
+    text = reply
     music_list_df = pd.read_csv('music_remove_dup.csv', encoding="utf-8")
     # 동일 감정 label 확인
     same_label_music = music_list_df[music_list_df['label'] == sentiment_result_label][['title', 'artist', 'Lyric']]
@@ -41,3 +61,4 @@ def sentiment(reply):
     recommend_music_list = same_label_music.iloc[recommend_index]
 
     return recommend_music_list
+    
