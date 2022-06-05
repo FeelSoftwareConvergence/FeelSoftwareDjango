@@ -30,8 +30,9 @@ def post(request):
 
     title = list(sentiment_result['title'])
     artist = list(sentiment_result['artist'])
+    link = list(sentiment_result['link'])
 
-    content = {'title': title, 'artist': artist}
+    content = {'title': title, 'artist': artist, 'link' : link}
     
     # delete image
     trash_image = glob.glob(settings.MEDIA_ROOT + '/*.png')
