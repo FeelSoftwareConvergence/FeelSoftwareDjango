@@ -44,10 +44,10 @@ def recommend_music(reply, sentiment_result_label, image_result_label) :
         sentiment_result_label = sentiment_result_label
 
     text = reply
-    music_list_df = pd.read_csv('music_remove_dup.csv', encoding="utf-8")
+    music_list_df = pd.read_csv('music_list_link.csv', encoding="utf-8")
     # 동일 감정 label 확인
-    same_label_music = music_list_df[music_list_df['label'] == sentiment_result_label][['title', 'artist', 'Lyric']]
-    same_label_music.loc['crawl_data'] = ['crawling_data', 'user', text]
+    same_label_music = music_list_df[music_list_df['label'] == sentiment_result_label][['title', 'artist', 'Lyric','link']]
+    same_label_music.loc['crawl_data'] = ['crawling_data', 'user', text,'']
 
     # word embedding 후 유사도 측정
     tfidf_matrix = tfidf_save_model.fit_transform(same_label_music['Lyric'])
